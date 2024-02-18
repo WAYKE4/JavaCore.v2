@@ -1,0 +1,12 @@
+create table db
+(
+    id      bigserial
+        constraint db_pk
+            primary key,
+    account varchar not null,
+    count   varchar not null
+);
+
+alter table db
+    owner to postgres;
+
