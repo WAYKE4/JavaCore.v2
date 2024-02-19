@@ -21,13 +21,14 @@ public class DatabaseWriter {
                 preparedStatement.setString(1, arrOut.get(i).substring(0, arrOut.get(i).indexOf(":")));
                 preparedStatement.setString(2, arrOut.get(i).substring(arrOut.get(i).indexOf(":") + 1));
                 preparedStatement.executeUpdate();
+                connection.close();
             }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
         }
     }
 
-    public static void UpdateDB(String lineback, int sumLines) {
+    public static void updateDB(String lineback, int sumLines) {
         Connection connection;
         PreparedStatement preparedStatement;
         try {
@@ -37,6 +38,7 @@ public class DatabaseWriter {
             preparedStatement.setString(1, String.valueOf(sumLines));
             preparedStatement.setString(2, lineback.substring(0, lineback.length() - 1));
             preparedStatement.executeUpdate();
+            connection.close();
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
         }

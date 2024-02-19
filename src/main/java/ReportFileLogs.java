@@ -30,7 +30,7 @@ public class ReportFileLogs {
             System.out.println(e);
         }
     }
-    public static void inCorrectDataTransaction(LocalDate localDate, LocalTime localTime, File resultFile, String beginCorrectLine,
+    public static void unCorrectDataTransaction(LocalDate localDate, LocalTime localTime, File resultFile, String beginCorrectLine,
                                                 String beginLine, String endCorrectLine, NumberFormatException e) throws IOException {
         BufferedWriter writerReport = new BufferedWriter(new FileWriter(Config.REPORT_FILE_PATH, true));
         writerReport.write(localDate + " " + localTime + "||" + "file: "

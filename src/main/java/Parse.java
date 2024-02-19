@@ -91,7 +91,7 @@ public class Parse {
                     }
                     int sumLines = endLineParseInt + endCorrectLineParseInt;
                     newLine = lineBack + sumLines;
-                    DatabaseWriter.UpdateDB(lineBack, sumLines);
+                    DatabaseWriter.updateDB(lineBack, sumLines);
                     dataList.set(i, newLine);
                     ReportFileLogs.successTransaction(localDate, localTime, resultFile, beginCorrectLine, beginLine, endCorrectLine);
                 }
@@ -103,7 +103,7 @@ public class Parse {
                     beginCorrectLine = correctOut.substring(0, correctOut.indexOf(":"));
                     localDate = LocalDate.now();
                     localTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
-                    ReportFileLogs.inCorrectDataTransaction(localDate, localTime, resultFile, beginCorrectLine, beginLine, endCorrectLine, e);
+                    ReportFileLogs.unCorrectDataTransaction(localDate, localTime, resultFile, beginCorrectLine, beginLine, endCorrectLine, e);
                 } catch (IOException ee) {
                     System.out.println(ee);
                 }
